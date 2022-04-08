@@ -41,3 +41,21 @@ a.cta:hover {
 ul {
   list-style-type: none;
 }
+button {
+  font-size: 20px;
+  padding: 20px;
+  background-color: #5CADD2;
+  color: #fff;
+  border: 0;
+  box-shadow: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #1C6D92;
+}
+
+button.cta {
+  background-color: #D25CA1;
+}

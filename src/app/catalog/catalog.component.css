@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 200px;
+}
+
+button {
+  width: 125px;
+}
