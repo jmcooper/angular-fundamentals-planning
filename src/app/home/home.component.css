@@ -4,7 +4,7 @@
 }
 
 .hero {
-  background-image: url('/assets/images/hero.png'); 
+  background-image: url('/assets/images/hero-banner.png'); 
   background-repeat: no-repeat; 
   height: 360px; 
   background-size: cover; 
