@@ -2,13 +2,14 @@ body {
   background-color: #BCBDC0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
+  color: #444;
 }
 a {
-  color: #1E91C8;
+  color: #444;
   text-decoration: none;
 }
 a:visited {
-  color: #1E91C8;
+  color: #444;
 }
 a:hover {
   color: #5CADD2;
@@ -36,4 +37,7 @@ a.cta:hover {
 }
 .cta {
   color: #D25CA1;
+}
+ul {
+  list-style-type: none;
 }
