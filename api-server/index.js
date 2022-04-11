@@ -1,0 +1,226 @@
+const path = require('path')
+const express = require("express");
+const history = require('connect-history-api-fallback');
+
+const app = express();
+/* 
+  IMPORTANT:
+    ***NEVER*** store credentials unencrypted like this.
+    This is for demo purposes only in order to simulate a functioning API serverr.
+*/
+const users = {
+  'jim@joesrobotcrap.com': {
+    firstName: 'Jim',
+    lastName: 'Cooper',
+    email: 'jim@joesrobotcrap.com',
+    password: 'very-secret'
+  },
+  'joe@joesrobotcrap.com': {
+    firstName: 'Joe',
+    lastName: 'Eames',
+    email: 'joe@joesrobotcrap.com',
+    password: 'super-secret'
+  },
+};
+let cart;
+
+app.get('/api/products', (req, res) => {
+  let products = [
+    {
+      id: 1,
+      description:
+        "A robot head with an unusually large eye and teloscpic neck -- excellent for exploring high spaces.",
+      name: "Large Cyclops",
+      imageName: "head-big-eye.png",
+      category: "Head",
+      price: 1225.5
+    },
+    {
+      id: 17,
+      description: "A spring base - great for reaching high places.",
+      name: "Spring Base",
+      imageName: "base-spring.png",
+      category: "bases",
+      price: 1190.5
+    },
+    {
+      id: 6,
+      description: "An articulated arm with a claw -- great for reaching around corners or working in tight spaces.",
+      name: "Articulated Arm",
+      imageName: "arm-articulated-claw.png",
+      category: "Arm",
+      price: 275
+    },
+    {
+      id: 2,
+      description: "A friendly robot head with two eyes and a smile -- great for domestic use.",
+      name: "Friendly Bot",
+      imageName: "head-friendly.png",
+      category: "Head",
+      price: 945.0,
+      onSale: true
+    },
+    {
+      id: 3,
+      description:
+        "A large three-eyed head with a shredder for a mouth -- great for crushing light medals or shredding documents.",
+      name: "Shredder",
+      imageName: "head-shredder.png",
+      category: "Head",
+      price: 1275.5
+    },
+    {
+      id: 16,
+      description: "A single-wheeled base with an accelerometer capable of higher speeds and navigating rougher terrain than the two-wheeled variety.",
+      name: "Single Wheeled Base",
+      imageName: "base-single-wheel.png",
+      category: "bases",
+      price: 1190.5
+    },
+    {
+      id: 13,
+      description: "A simple torso with a pouch for carrying items.",
+      name: "Pouch Torso",
+      imageName: "torso-pouch.png",
+      category: "Torso",
+      price: 785,
+      onSale: true
+    },
+    {
+      id: 7,
+      description: "An arm with two independent claws -- great when you need an extra hand. Need four hands? Equip your bot with two of these arms.",
+      name: "Two Clawed Arm",
+      imageName: "arm-dual-claw.png",
+      category: "Arm",
+      price: 285
+    },
+
+    {
+      id: 4,
+      description:
+        "A simple single-eyed head -- simple and inexpensive.",
+      name: "Small Cyclops",
+      imageName: "head-single-eye.png",
+      category: "Head",
+      price: 750.0
+    },
+    {
+      id: 9,
+      description: "An arm with a propeller -- good for propulsion or as a cooling fan.",
+      name: "Propeller Arm",
+      imageName: "arm-propeller.png",
+      category: "Arm",
+      price: 230
+    },
+    {
+      id: 15,
+      description: "A rocket base capable of high speed, controlled flight.",
+      name: "Rocket Base",
+      imageName: "base-rocket.png",
+      category: "bases",
+      price: 1520.5
+    },
+    {
+      id: 10,
+      description: "A short and stubby arm with a claw -- simple, but cheap.",
+      name: "Stubby Claw Arm",
+      imageName: "arm-stubby-claw.png",
+      category: "Arm",
+      price: 125
+    },
+    {
+      id: 11,
+      description: "A torso that can bend slightly at the waist and equiped with a heat guage.",
+      name: "Flexible Gauged Torso",
+      imageName: "torso-flexible-gauged.png",
+      category: "Torso",
+      price: 1575
+    },
+    {
+      id: 14,
+      description: "A two wheeled base with an accelerometer for stability.",
+      name: "Double Wheeled Base",
+      imageName: "base-double-wheel.png",
+      category: "bases",
+      price: 895
+    },
+    {
+      id: 5,
+      description:
+        "A robot head with three oscillating eyes -- excellent for surveillance.",
+      name: "Surveillance",
+      imageName: "head-surveillance.png",
+      category: "Head",
+      price: 1255.5
+    },
+    {
+      id: 8,
+      description: "A telescoping arm with a grabber.",
+      name: "Grabber Arm",
+      imageName: "arm-grabber.png",
+      category: "Arm",
+      price: 205.5
+    },
+    {
+      id: 12,
+      description: "A less flexible torso with a battery gauge.",
+      name: "Gauged Torso",
+      imageName: "torso-gauged.png",
+      category: "Torso",
+      price: 1385
+    },
+    {
+      id: 18,
+      description: "An inexpensive three-wheeled base. only capable of slow speeds and can only function on smooth surfaces.",
+      name: "Triple Wheeled Base",
+      imageName: "base-triple-wheel.png",
+      category: "bases",
+      price: 700.5
+    },
+  ];
+  res.send(products);
+});
+
+app.post('/api/cart', (req, res) => {
+  cart = req.body;
+  setTimeout(() => res.status(201).send(), 800);
+});
+
+app.get('/api/cart', (req, res) =>
+  res.send(cart)
+);
+
+app.post('/api/register', (req, res) => setTimeout(() => {
+  const user = req.body;
+  if (user.firstName && user.lastName && user.email && user.password) {
+    user.userId = uuid();
+    users[user.email] = user;
+    res.status(201).send({
+      userId: user.userId,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+    });
+  } else {
+    res.status(500).send('Invalid user info');
+  }
+}, 800));
+
+/* IMPORTANT:
+    The code below is for demo purposes only and does not represent good security
+    practices. In a production application user credentials would be cryptographically 
+    stored in a database server and the password should NEVER be stored as plain text. 
+*/
+app.post('/api/sign-in', (req, res) => {
+  const user = users[req.body.email];
+  if (user && user.password === req.body.password) {
+    res.status(200).send({
+      userId: user.userId,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+    });
+  } else { res.status(401).send('Invalid user credentials.'); }
+});
+
+app.listen(8081, () => console.log('API Server listening on port 8081!'));

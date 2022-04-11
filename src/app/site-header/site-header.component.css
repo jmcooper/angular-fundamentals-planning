@@ -22,6 +22,7 @@
 .right {
   display: flex;
   align-items: center;
+  margin-right:25px;
 }
 .right * {
   margin-left:25px;

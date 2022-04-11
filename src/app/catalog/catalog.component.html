@@ -5,4 +5,20 @@
     <button>Torsos</button>
     <button>Bases</button>
   </div>
+  <ul class="products">
+    <li class="product" *ngFor="let product of products">
+      <div class="product-details">
+        <img src="{{'/assets/images/robot-parts/' + product.imageName}}" alt="{{product.name}}" />
+        <div class="product-info">
+          <div class="name">{{product.name}}</div>
+          <div class="description">{{product.description}}</div>
+          <div class="category">Part Type: {{product.category}}</div>
+        </div>
+      </div>
+      <div class="price">
+        <div>{{product.price | currency}} </div>
+        <button class="cta">Buy</button>
+      </div>
+    </li>
+  </ul>
 </div>

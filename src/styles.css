@@ -1,5 +1,5 @@
 body {
-  background-color: #BCBDC0;
+  background-color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   color: #444;
@@ -40,6 +40,7 @@ a.cta:hover {
 }
 ul {
   list-style-type: none;
+  padding: 0;
 }
 button {
   font-size: 20px;
@@ -58,4 +59,5 @@ button:hover {
 
 button.cta {
   background-color: #D25CA1;
+  color: #fff;
 }
