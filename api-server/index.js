@@ -1,6 +1,4 @@
-const path = require('path')
 const express = require("express");
-const history = require('connect-history-api-fallback');
 
 const app = express();
 /* 
@@ -196,7 +194,6 @@ app.post('/api/register', (req, res) => setTimeout(() => {
     user.userId = uuid();
     users[user.email] = user;
     res.status(201).send({
-      userId: user.userId,
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,

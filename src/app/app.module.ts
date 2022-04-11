@@ -7,13 +7,15 @@ import { HomeComponent } from './home/home.component';
 import { SiteHeaderComponent } from './site-header/site-header.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SiteHeaderComponent,
-    CatalogComponent
+    CatalogComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,6 @@
   "author": "Joe Eames & Jim Cooper",
   "license": "ISC",
   "dependencies": {
-    "connect-history-api-fallback": "^1.6.0",
     "express": "^4.17.3"
   }
 }

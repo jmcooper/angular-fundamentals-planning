@@ -61,3 +61,24 @@ button.cta {
   background-color: #D25CA1;
   color: #fff;
 }
+
+input {
+  padding: 15px;
+  font-size: 20px;
+}
+
+a.button {
+  background-color: #777;
+  color: white;
+  padding: 15px 25px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.button.cta {
+  background-color: #D25CA1;
+}
+
+a.button.cta:hover {
+  color: #ccc;
+}

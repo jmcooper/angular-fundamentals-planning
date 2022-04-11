@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form {
+  display: flex;
+  padding: 30px 50px 50px 50px;
+  flex-direction: column;
+  margin-top: 25px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+}
+
+.form input {
+  margin-bottom:25px;
+}
+
+.form .buttons {
+  text-align: right;
+}
+
+.logo {
+  width: 150px;
+  align-self: center;
+  margin-bottom: 15px;
+}
+
+.sign-in {
+  font-size: 20px;
+  align-self: center;
+  color: #555;
+}
+
+.sub-text {
+  font-size: 18px;
+  align-self: center;
+  margin-bottom: 35px;
+  color: #555;
+}
