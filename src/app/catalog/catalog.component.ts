@@ -9,14 +9,28 @@ import { ProductRepositoryService } from './product-repository.service';
   styleUrls: ['./catalog.component.css']
 })
 export class CatalogComponent implements OnInit {
-  public products: IProduct[] = [];
+  private products: IProduct[] = [];
+  public visibleProducts: IProduct[] = [];
+  public filter: string = '';
 
   constructor(private productRepository: ProductRepositoryService) { }
 
   ngOnInit(): void {
-    this.productRepository.getProducts().subscribe(
-      (products: IProduct[]) => this.products = products
-    );
+    this.productRepository.getProducts().subscribe((products: IProduct[]) => {
+      this.products = products;
+      this.filterProducts();
+    });
   }
 
+  public setFilter(filter: string) {
+    this.filter = filter;
+    this.filterProducts();
+  }
+
+  private filterProducts() {
+    console.log(this.filter, this.products)
+    this.visibleProducts = this.filter === ''
+      ? this.products
+      : this.products.filter(product => product.category === this.filter);;
+  }
 }

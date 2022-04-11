@@ -40,7 +40,7 @@ app.get('/api/products', (req, res) => {
       description: "A spring base - great for reaching high places.",
       name: "Spring Base",
       imageName: "base-spring.png",
-      category: "bases",
+      category: "Base",
       price: 1190.5
     },
     {
@@ -74,7 +74,7 @@ app.get('/api/products', (req, res) => {
       description: "A single-wheeled base with an accelerometer capable of higher speeds and navigating rougher terrain than the two-wheeled variety.",
       name: "Single Wheeled Base",
       imageName: "base-single-wheel.png",
-      category: "bases",
+      category: "Base",
       price: 1190.5
     },
     {
@@ -117,7 +117,7 @@ app.get('/api/products', (req, res) => {
       description: "A rocket base capable of high speed, controlled flight.",
       name: "Rocket Base",
       imageName: "base-rocket.png",
-      category: "bases",
+      category: "Base",
       price: 1520.5
     },
     {
@@ -141,7 +141,7 @@ app.get('/api/products', (req, res) => {
       description: "A two wheeled base with an accelerometer for stability.",
       name: "Double Wheeled Base",
       imageName: "base-double-wheel.png",
-      category: "bases",
+      category: "Base",
       price: 895
     },
     {
@@ -174,7 +174,7 @@ app.get('/api/products', (req, res) => {
       description: "An inexpensive three-wheeled base. only capable of slow speeds and can only function on smooth surfaces.",
       name: "Triple Wheeled Base",
       imageName: "base-triple-wheel.png",
-      category: "bases",
+      category: "Base",
       price: 700.5
     },
   ];
