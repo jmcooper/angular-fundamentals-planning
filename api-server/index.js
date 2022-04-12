@@ -1,6 +1,8 @@
 const express = require("express");
+const bodyParser = require('body-parser');
 
 const app = express();
+app.use(bodyParser.json());
 /* 
   IMPORTANT:
     ***NEVER*** store credentials unencrypted like this.

@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable } from 'rxjs';
 
 import { IUser, IUserCredentials } from './user.model';
-import { userInfo } from 'os';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +20,10 @@ export class UserRepositoryService {
   signIn(credentials: IUserCredentials): Observable<IUser> {
     return this.http.post<IUser>('/api/sign-in', credentials)
       .pipe(map(this.storeAndReturnUser));
+  }
+
+  signOut() {
+    this.user = null;
   }
 
   register(user: IUser): Observable<IUser> {

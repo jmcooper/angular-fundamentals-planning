@@ -13,11 +13,7 @@
 }
 
 .form input {
-  margin-bottom:25px;
-}
-
-.form .buttons {
-  text-align: right;
+  margin-top: 25px;
 }
 
 .logo {
@@ -27,7 +23,7 @@
 }
 
 .sign-in {
-  font-size: 20px;
+  font-size: 0px;
   align-self: center;
   color: #555;
 }
@@ -35,6 +31,31 @@
 .sub-text {
   font-size: 18px;
   align-self: center;
-  margin-bottom: 35px;
-  color: #555;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.form .buttons {
+  margin-top: 10px;
+  display: inline-flex;
+  justify-content: flex-end;
+  font-size: 16px;
+}
+
+input.error {
+  border: 1px solid #D25CA1;
+}
+
+em.error {
+  padding: 2px 5px;
+  background-color: #D25CA1;
+  color: white;
+  font-style: normal;
+}
+
+.signInError {
+  margin: 25px 0;
+  color: red;
+  font-size: 18px;
+  text-align: center;
 }

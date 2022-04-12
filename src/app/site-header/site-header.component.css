@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 24px;
-  margin-bottom:10px;
+  margin-bottom: 10px;
   margin: -3px -8px 0 -8px;
   padding: 0 8px 5px 8px;
   border-bottom: 2px solid #818285;
@@ -12,9 +12,11 @@
   display: flex;
   align-items: center;
 }
+
 .left * {
-  margin-right:25px;
+  margin-right: 25px;
 }
+
 .logo {
   height: 65px;
 }
@@ -22,9 +24,20 @@
 .right {
   display: flex;
   align-items: center;
-  margin-right:25px;
-}
-.right * {
-  margin-left:25px;
+  margin-right: 25px;
 }
 
+.right * {
+  margin-left: 25px;
+}
+
+.right img {
+  height: 40px;
+  cursor: pointer;
+}
+
+.sign-out {
+  position: absolute;
+  top: 60px;
+  right: 30px;
+}
