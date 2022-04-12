@@ -9,9 +9,13 @@
       Email is required
     </em>
     <input name="password" [(ngModel)]="credentials.password" #password="ngModel"
-      [ngClass]="{'error': password.invalid && password.dirty }" required placeholder="Password" type="password" />
-    <em class="error" *ngIf="password.invalid && password.dirty">
+      [ngClass]="{'error': password.invalid && password.dirty }" required minlength="8" placeholder="Password"
+      type="password" />
+    <em class="error" *ngIf="password.errors?.['required'] && password.dirty">
       Password is required
+    </em>
+    <em class="error" *ngIf="password.errors?.['minlength'] && password.dirty">
+      Password must be at least 8 characters
     </em>
     <div class="buttons">
       <button type="submit" class="button cta" [disabled]="!signInForm.form.valid">Sign

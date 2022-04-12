@@ -193,7 +193,6 @@ app.get('/api/cart', (req, res) =>
 app.post('/api/register', (req, res) => setTimeout(() => {
   const user = req.body;
   if (user.firstName && user.lastName && user.email && user.password) {
-    user.userId = uuid();
     users[user.email] = user;
     res.status(201).send({
       firstName: user.firstName,

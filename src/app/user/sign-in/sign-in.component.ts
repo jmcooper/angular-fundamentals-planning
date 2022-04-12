@@ -10,7 +10,6 @@ import { IUserCredentials } from 'src/app/shared/user.model';
 })
 export class SignInComponent {
   credentials: IUserCredentials = { email: '', password: '' };
-  private processing = false;
   signInError = false;
 
   constructor(private userRepository: UserRepositoryService, private router: Router) { }

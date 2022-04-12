@@ -27,7 +27,7 @@ export class UserRepositoryService {
   }
 
   register(user: IUser): Observable<IUser> {
-    return this.http.post<IUser>('/api/sign-in', user)
+    return this.http.post<IUser>('/api/register', user)
       .pipe(map(this.storeAndReturnUser));
   }
 }

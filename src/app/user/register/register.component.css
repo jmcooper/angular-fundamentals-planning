@@ -5,7 +5,7 @@
 
 .form {
   display: flex;
-  padding: 30px 50px 50px 50px;
+  padding: 30px 100px 50px 100px;
   flex-direction: column;
   margin-top: 25px;
   border: 1px solid #ddd;
@@ -22,7 +22,7 @@
   margin-bottom: 15px;
 }
 
-.sign-in {
+.register {
   font-size: 30px;
   align-self: center;
   color: #555;
