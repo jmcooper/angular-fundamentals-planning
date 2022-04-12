@@ -19,7 +19,7 @@
       </div>
       <div class="price">
         <div>{{product.price | currency}} </div>
-        <button class="cta">Buy</button>
+        <button class="cta" (click)="addToCart(product)">Buy</button>
       </div>
     </li>
   </ul>

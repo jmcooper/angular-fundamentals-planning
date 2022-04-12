@@ -3,6 +3,12 @@
     <img class="logo" src="/assets/images/logo.png" alt="Logo" />
     <a href="/">Home</a>
     <a href="catalog">Catalog</a>
+    <div class="cart">
+      <a href="cart">Cart</a>
+      <div class="cartCount" *ngIf="getCartCount() > 0">
+        <div>{{getCartCount()}}</div>
+      </div>
+    </div>
   </div>
   <div class="right" *ngIf="!getUser()">
     <a href="user/sign-in">Sign In</a>

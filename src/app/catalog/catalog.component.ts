@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { IProduct } from './product.model';
 import { ProductRepositoryService } from './product-repository.service';
+import { CartRepositoryService } from '../cart/cart-repository.service';
 
 @Component({
   selector: 'bot-catalog',
@@ -13,7 +14,7 @@ export class CatalogComponent implements OnInit {
   public visibleProducts: IProduct[] = [];
   public filter: string = '';
 
-  constructor(private productRepository: ProductRepositoryService) { }
+  constructor(private productRepository: ProductRepositoryService, private cartRepository: CartRepositoryService) { }
 
   ngOnInit(): void {
     this.productRepository.getProducts().subscribe((products: IProduct[]) => {
@@ -22,15 +23,21 @@ export class CatalogComponent implements OnInit {
     });
   }
 
-  public setFilter(filter: string) {
+  setFilter(filter: string) {
     this.filter = filter;
     this.filterProducts();
   }
 
+  addToCart(product: IProduct) {
+    let cart = [...this.cartRepository.cart, product];
+
+    this.cartRepository.saveCart(cart);
+  }
+
   private filterProducts() {
-    console.log(this.filter, this.products)
     this.visibleProducts = this.filter === ''
       ? this.products
       : this.products.filter(product => product.category === this.filter);;
   }
+
 }

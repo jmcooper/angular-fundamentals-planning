@@ -21,6 +21,29 @@
   height: 65px;
 }
 
+.cart {
+  position: relative;
+}
+
+.cartCount {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  top: -7px;
+  right: -15px;
+  border-radius: 25px;
+  background-color: #F590C4;
+  color: white;
+  font-size: 14px;
+}
+
+.cartCount div {
+  margin: auto;
+}
+
 .right {
   display: flex;
   align-items: center;

@@ -183,7 +183,7 @@ app.get('/api/products', (req, res) => {
 
 app.post('/api/cart', (req, res) => {
   cart = req.body;
-  setTimeout(() => res.status(201).send(), 800);
+  setTimeout(() => res.status(201).send(), 20);
 });
 
 app.get('/api/cart', (req, res) =>
