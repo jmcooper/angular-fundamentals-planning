@@ -12,6 +12,13 @@ export class CartComponent {
 
   get cartItems() { return this.cartRepository.cart; }
 
-  get cartTotal() { return this.cartRepository.cart.reduce((prev, next) => prev + next.price, 0) }
-
+  get cartTotal() {
+    return this.cartRepository.cart
+      .reduce((prev, next) => {
+        let discount = next.discount && next.discount > 0
+          ? 1 - next.discount
+          : 1;
+        return prev + (next.price * discount);
+      }, 0)
+  }
 }
