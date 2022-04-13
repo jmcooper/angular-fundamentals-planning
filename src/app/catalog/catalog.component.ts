@@ -28,12 +28,6 @@ export class CatalogComponent implements OnInit {
     this.filterProducts();
   }
 
-  addToCart(product: IProduct) {
-    let cart = [...this.cartRepository.cart, product];
-
-    this.cartRepository.saveCart(cart);
-  }
-
   private filterProducts() {
     this.visibleProducts = this.filter === ''
       ? this.products

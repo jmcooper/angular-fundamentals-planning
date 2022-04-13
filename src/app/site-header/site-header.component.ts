@@ -27,6 +27,7 @@ export class SiteHeaderComponent {
 
   signOut() {
     this.userRepository.signOut();
+    this.showSignOutMenu = false;
   }
 
 }

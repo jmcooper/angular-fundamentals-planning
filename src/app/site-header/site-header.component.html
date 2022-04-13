@@ -1,18 +1,18 @@
 <div class="container">
   <div class="left">
     <img class="logo" src="/assets/images/logo.png" alt="Logo" />
-    <a href="/">Home</a>
-    <a href="catalog">Catalog</a>
+    <a [routerLink]="['/']">Home</a>
+    <a [routerLink]="['catalog']">Catalog</a>
     <div class="cart">
-      <a href="cart">Cart</a>
+      <a [routerLink]="['cart']">Cart</a>
       <div class="cartCount" *ngIf="getCartCount() > 0">
         <div>{{getCartCount()}}</div>
       </div>
     </div>
   </div>
   <div class="right" *ngIf="!getUser()">
-    <a href="user/sign-in">Sign In</a>
-    <a href="user/register" class="cta">Register</a>
+    <a [routerLink]="['user/sign-in']">Sign In</a>
+    <a [routerLink]="['user/register']" class="cta">Register</a>
   </div>
   <div class="right" *ngIf="getUser()">
     <div>

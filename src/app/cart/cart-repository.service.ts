@@ -8,10 +8,12 @@ import { IProduct } from '../catalog/product.model';
   providedIn: 'root'
 })
 export class CartRepositoryService {
-
+  public random: number;
   public cart: IProduct[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.random = Math.random();
+  }
 
   getCart(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>('/api/cart')
@@ -23,7 +25,6 @@ export class CartRepositoryService {
       .subscribe({
         next: () => {
           this.cart = cart;
-          console.log('saved');
         }
       });
   }
