@@ -8,7 +8,18 @@
     </div>
   </div>
   <div class="price">
-    <div>{{product.price | currency}} </div>
+    <!-- <div *ngIf="!product.discount || product.discount === 0">
+      {{product.price | currency}}
+    </div>
+    <div *ngIf="product.discount && product.discount > 0" class="strikethrough">
+      {{product.price | currency}}
+    </div> -->
+    <div [ngClass]="{'strikethrough': product.discount && product.discount > 0}">
+      {{product.price | currency}}
+    </div>
+    <div *ngIf="product.discount && product.discount > 0" class="discount">
+      {{product.price * (1-product.discount) | currency}}
+    </div>
     <button *ngIf="allowPurchase" class="cta" (click)="addToCart(product)">Buy</button>
   </div>
 </div>

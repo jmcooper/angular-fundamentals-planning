@@ -48,3 +48,13 @@
   padding: 10px;
   width: 100px;
 }
+
+.strikethrough {
+  text-decoration: line-through;
+  font-size: 18px;
+}
+
+.discount {
+  margin-top: -15px;
+  color: #D25CA1;
+}

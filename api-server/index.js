@@ -32,15 +32,16 @@ app.get('/api/products', (req, res) => {
         "A robot head with an unusually large eye and teloscpic neck -- excellent for exploring high spaces.",
       name: "Large Cyclops",
       imageName: "head-big-eye.png",
-      category: "Head",
-      price: 1225.5
+      category: "Heads",
+      price: 1225.5,
+      discount: .2
     },
     {
       id: 17,
       description: "A spring base - great for reaching high places.",
       name: "Spring Base",
       imageName: "base-spring.png",
-      category: "Base",
+      category: "Bases",
       price: 1190.5
     },
     {
@@ -48,7 +49,7 @@ app.get('/api/products', (req, res) => {
       description: "An articulated arm with a claw -- great for reaching around corners or working in tight spaces.",
       name: "Articulated Arm",
       imageName: "arm-articulated-claw.png",
-      category: "Arm",
+      category: "Arms",
       price: 275
     },
     {
@@ -56,9 +57,9 @@ app.get('/api/products', (req, res) => {
       description: "A friendly robot head with two eyes and a smile -- great for domestic use.",
       name: "Friendly Bot",
       imageName: "head-friendly.png",
-      category: "Head",
+      category: "Heads",
       price: 945.0,
-      onSale: true
+      discount: .2
     },
     {
       id: 3,
@@ -66,7 +67,7 @@ app.get('/api/products', (req, res) => {
         "A large three-eyed head with a shredder for a mouth -- great for crushing light medals or shredding documents.",
       name: "Shredder",
       imageName: "head-shredder.png",
-      category: "Head",
+      category: "Heads",
       price: 1275.5
     },
     {
@@ -74,24 +75,24 @@ app.get('/api/products', (req, res) => {
       description: "A single-wheeled base with an accelerometer capable of higher speeds and navigating rougher terrain than the two-wheeled variety.",
       name: "Single Wheeled Base",
       imageName: "base-single-wheel.png",
-      category: "Base",
-      price: 1190.5
+      category: "Bases",
+      price: 1190.5,
+      discount: .1
     },
     {
       id: 13,
       description: "A simple torso with a pouch for carrying items.",
       name: "Pouch Torso",
       imageName: "torso-pouch.png",
-      category: "Torso",
-      price: 785,
-      onSale: true
+      category: "Torsos",
+      price: 785
     },
     {
       id: 7,
       description: "An arm with two independent claws -- great when you need an extra hand. Need four hands? Equip your bot with two of these arms.",
       name: "Two Clawed Arm",
       imageName: "arm-dual-claw.png",
-      category: "Arm",
+      category: "Arms",
       price: 285
     },
 
@@ -101,7 +102,7 @@ app.get('/api/products', (req, res) => {
         "A simple single-eyed head -- simple and inexpensive.",
       name: "Small Cyclops",
       imageName: "head-single-eye.png",
-      category: "Head",
+      category: "Heads",
       price: 750.0
     },
     {
@@ -109,15 +110,16 @@ app.get('/api/products', (req, res) => {
       description: "An arm with a propeller -- good for propulsion or as a cooling fan.",
       name: "Propeller Arm",
       imageName: "arm-propeller.png",
-      category: "Arm",
-      price: 230
+      category: "Arms",
+      price: 230,
+      discount: .1
     },
     {
       id: 15,
       description: "A rocket base capable of high speed, controlled flight.",
       name: "Rocket Base",
       imageName: "base-rocket.png",
-      category: "Base",
+      category: "Bases",
       price: 1520.5
     },
     {
@@ -125,7 +127,7 @@ app.get('/api/products', (req, res) => {
       description: "A short and stubby arm with a claw -- simple, but cheap.",
       name: "Stubby Claw Arm",
       imageName: "arm-stubby-claw.png",
-      category: "Arm",
+      category: "Arms",
       price: 125
     },
     {
@@ -133,7 +135,7 @@ app.get('/api/products', (req, res) => {
       description: "A torso that can bend slightly at the waist and equiped with a heat guage.",
       name: "Flexible Gauged Torso",
       imageName: "torso-flexible-gauged.png",
-      category: "Torso",
+      category: "Torsos",
       price: 1575
     },
     {
@@ -141,7 +143,7 @@ app.get('/api/products', (req, res) => {
       description: "A two wheeled base with an accelerometer for stability.",
       name: "Double Wheeled Base",
       imageName: "base-double-wheel.png",
-      category: "Base",
+      category: "Bases",
       price: 895
     },
     {
@@ -150,7 +152,7 @@ app.get('/api/products', (req, res) => {
         "A robot head with three oscillating eyes -- excellent for surveillance.",
       name: "Surveillance",
       imageName: "head-surveillance.png",
-      category: "Head",
+      category: "Heads",
       price: 1255.5
     },
     {
@@ -158,7 +160,7 @@ app.get('/api/products', (req, res) => {
       description: "A telescoping arm with a grabber.",
       name: "Grabber Arm",
       imageName: "arm-grabber.png",
-      category: "Arm",
+      category: "Arms",
       price: 205.5
     },
     {
@@ -166,7 +168,7 @@ app.get('/api/products', (req, res) => {
       description: "A less flexible torso with a battery gauge.",
       name: "Gauged Torso",
       imageName: "torso-gauged.png",
-      category: "Torso",
+      category: "Torsos",
       price: 1385
     },
     {
@@ -174,7 +176,7 @@ app.get('/api/products', (req, res) => {
       description: "An inexpensive three-wheeled base. only capable of slow speeds and can only function on smooth surfaces.",
       name: "Triple Wheeled Base",
       imageName: "base-triple-wheel.png",
-      category: "Base",
+      category: "Bases",
       price: 700.5
     },
   ];
