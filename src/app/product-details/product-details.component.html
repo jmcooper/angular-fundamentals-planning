@@ -1,25 +1,24 @@
 <div class="product">
   <div class="product-details">
-    <img src="{{'/assets/images/robot-parts/' + product.imageName}}" alt="{{product.name}}" />
+    <img
+      src="{{ '/assets/images/robot-parts/' + product.imageName }}"
+      alt="{{ product.name }}"
+    />
     <div class="product-info">
-      <div class="name">{{product.name}}</div>
-      <div class="description">{{product.description}}</div>
-      <div class="category">Part Type: {{product.category}}</div>
+      <div class="name">{{ product.name }}</div>
+      <div class="description">{{ product.description }}</div>
+      <div class="category">Part Type: {{ product.category }}</div>
     </div>
   </div>
   <div class="price">
-    <!-- <div *ngIf="!product.discount || product.discount === 0">
-      {{product.price | currency}}
-    </div>
-    <div *ngIf="product.discount && product.discount > 0" class="strikethrough">
-      {{product.price | currency}}
-    </div> -->
-    <div [ngClass]="{'strikethrough': product.discount && product.discount > 0}">
-      {{product.price | currency}}
+    <div
+      [ngClass]="{ strikethrough: product.discount && product.discount > 0 }"
+    >
+      {{ product.price | currency }}
     </div>
     <div *ngIf="product.discount && product.discount > 0" class="discount">
-      {{product.price * (1-product.discount) | currency}}
+      {{ product.price * (1 - product.discount) | currency }}
     </div>
-    <button *ngIf="allowPurchase" class="cta" (click)="addToCart(product)">Buy</button>
+    <ng-content></ng-content>
   </div>
 </div>

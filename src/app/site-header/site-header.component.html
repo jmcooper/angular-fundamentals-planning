@@ -1,12 +1,17 @@
 <div class="container">
   <div class="left">
     <img class="logo" src="/assets/images/logo.png" alt="Logo" />
-    <a [routerLink]="['/']">Home</a>
-    <a [routerLink]="['catalog']">Catalog</a>
+    <a
+      [routerLink]="['home']"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+    <a [routerLink]="['catalog']" routerLinkActive="active">Catalog</a>
     <div class="cart">
-      <a [routerLink]="['cart']">Cart</a>
+      <a [routerLink]="['cart']" routerLinkActive="active">Cart</a>
       <div class="cartCount" *ngIf="getCartCount() > 0">
-        <div>{{getCartCount()}}</div>
+        <div>{{ getCartCount() }}</div>
       </div>
     </div>
   </div>
@@ -16,7 +21,11 @@
   </div>
   <div class="right" *ngIf="getUser()">
     <div>
-      <img src="/assets/images/profile.png" (click)="toggleSignOutMenu()" alt="profile picture" />
+      <img
+        src="/assets/images/profile.png"
+        (click)="toggleSignOutMenu()"
+        alt="profile picture"
+      />
       <div class="sign-out" *ngIf="showSignOutMenu">
         <button (click)="signOut()">Sign Out</button>
       </div>
