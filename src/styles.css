@@ -19,39 +19,39 @@ a:visited {
 }
 
 a:hover {
-  color: #5CADD2;
+  color: #5cadd2;
 }
 
 a.cta {
-  color: #D25CA1;
+  color: #d25ca1;
 }
 
 a.cta:visited {
-  color: #D25CA1;
+  color: #d25ca1;
 }
 
 a.cta:hover {
-  color: #F27CB1;
+  color: #f27cb1;
 }
 
 .cta {
-  color: #D25CA1;
+  color: #d25ca1;
 }
 
 a.cta {
-  color: #D25CA1;
+  color: #d25ca1;
 }
 
 a.cta:visited {
-  color: #D25CA1;
+  color: #d25ca1;
 }
 
 a.cta:hover {
-  color: #F27CB1;
+  color: #f27cb1;
 }
 
 .cta {
-  color: #D25CA1;
+  color: #d25ca1;
 }
 
 ul {
@@ -62,7 +62,7 @@ ul {
 button {
   font-size: 15px;
   padding: 15px 25px;
-  background-color: #5CADD2;
+  background-color: #5cadd2;
   color: #fff;
   border: 0;
   box-shadow: none;
@@ -75,12 +75,12 @@ button:disabled {
 }
 
 button:hover {
-  color: #1C6D92;
+  color: #1c6d92;
 }
 
 button.cta {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #D25CA1;
+  background-color: #d25ca1;
   color: #ddd;
 }
 
@@ -102,7 +102,7 @@ a.button {
 }
 
 a.button.cta {
-  background-color: #D25CA1;
+  background-color: #d25ca1;
 }
 
 a.button.cta:hover {
@@ -110,6 +110,6 @@ a.button.cta:hover {
 }
 
 .button.cta:disabled {
-  background-color: #F590C4;
+  background-color: #f590c4;
   color: #aaa;
 }
