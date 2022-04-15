@@ -21,7 +21,4 @@ export class ProductDetailsComponent implements OnInit {
 
     this.cartRepository.saveCart(cart);
   }
-
-
-
 }
