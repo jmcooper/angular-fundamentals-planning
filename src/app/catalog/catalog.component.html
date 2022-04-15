@@ -9,7 +9,25 @@
 
   <ul class="products">
     <li class="product-item" *ngFor="let product of visibleProducts">
-      <bot-product-details [product]="product" [allowPurchase]="true"></bot-product-details>
+      <div class="product">
+        <div class="product-details">
+          <img src="{{'/assets/images/robot-parts/' + product.imageName}}" alt="{{product.name}}" />
+          <div class="product-info">
+            <div class="name">{{product.name}}</div>
+            <div class="description">{{product.description}}</div>
+            <div class="category">Part Type: {{product.category}}</div>
+          </div>
+        </div>
+        <div class="price">
+          <div [ngClass]="{'strikethrough': product.discount && product.discount > 0}">
+            {{product.price | currency}}
+          </div>
+          <div *ngIf="product.discount && product.discount > 0" class="discount">
+            {{product.price * (1-product.discount) | currency}}
+          </div>
+          <button class="cta" (click)="addToCart(product)">Buy</button>
+        </div>
+      </div>
     </li>
   </ul>
 </div>
