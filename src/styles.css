@@ -11,7 +11,8 @@ a {
 }
 
 a.active {
-  color: #d25ca1;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #d25ca1;
 }
 
 a:visited {

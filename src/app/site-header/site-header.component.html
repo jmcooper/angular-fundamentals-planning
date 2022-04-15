@@ -16,8 +16,10 @@
     </div>
   </div>
   <div class="right" *ngIf="!getUser()">
-    <a [routerLink]="['user/sign-in']">Sign In</a>
-    <a [routerLink]="['user/register']" class="cta">Register</a>
+    <a [routerLink]="['user/sign-in']" routerLinkActive="active">Sign In</a>
+    <a [routerLink]="['user/register']" routerLinkActive="active" class="cta"
+      >Register</a
+    >
   </div>
   <div class="right" *ngIf="getUser()">
     <div>
