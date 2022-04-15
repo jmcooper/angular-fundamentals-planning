@@ -10,6 +10,10 @@ a {
   text-decoration: none;
 }
 
+a.active {
+  color: #d25ca1;
+}
+
 a:visited {
   color: #444;
 }

@@ -9,7 +9,9 @@
 
   <ul class="products">
     <li class="product-item" *ngFor="let product of visibleProducts">
-      <bot-product-details [product]="product" [allowPurchase]="true"></bot-product-details>
+      <bot-product-details [product]="product">
+        <button class="cta" (click)="addToCart(product)">Buy</button>
+      </bot-product-details>
     </li>
   </ul>
 </div>
