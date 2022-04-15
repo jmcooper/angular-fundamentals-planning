@@ -43,12 +43,12 @@
 }
 
 input.error {
-  border: 1px solid #D25CA1;
+  border: 1px solid #d25ca1;
 }
 
 em.error {
   padding: 2px 5px;
-  background-color: #D25CA1;
+  background-color: #d25ca1;
   color: white;
   font-style: normal;
 }

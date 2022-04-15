@@ -5,7 +5,7 @@ import { map, Observable } from 'rxjs';
 import { IProduct } from '../catalog/product.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartRepositoryService {
   public random: number;
@@ -16,16 +16,19 @@ export class CartRepositoryService {
   }
 
   getCart(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>('/api/cart')
-      .pipe(map((cart) => { this.cart = cart; return this.cart; }));
+    return this.http.get<IProduct[]>('/api/cart').pipe(
+      map((cart) => {
+        this.cart = cart;
+        return this.cart;
+      })
+    );
   }
 
   saveCart(cart: IProduct[]) {
-    this.http.post('/api/cart', cart)
-      .subscribe({
-        next: () => {
-          this.cart = cart;
-        }
-      });
+    this.http.post('/api/cart', cart).subscribe({
+      next: () => {
+        this.cart = cart;
+      },
+    });
   }
 }

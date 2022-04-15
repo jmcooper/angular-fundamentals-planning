@@ -1,5 +1,5 @@
 const express = require("express");
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 
 const app = express();
 app.use(bodyParser.json());
@@ -9,22 +9,22 @@ app.use(bodyParser.json());
     This is for demo purposes only in order to simulate a functioning API serverr.
 */
 const users = {
-  'jim@joesrobotcrap.com': {
-    firstName: 'Jim',
-    lastName: 'Cooper',
-    email: 'jim@joesrobotcrap.com',
-    password: 'very-secret'
+  "jim@joesrobotcrap.com": {
+    firstName: "Jim",
+    lastName: "Cooper",
+    email: "jim@joesrobotcrap.com",
+    password: "very-secret",
   },
-  'joe@joesrobotcrap.com': {
-    firstName: 'Joe',
-    lastName: 'Eames',
-    email: 'joe@joesrobotcrap.com',
-    password: 'super-secret'
+  "joe@joesrobotcrap.com": {
+    firstName: "Joe",
+    lastName: "Eames",
+    email: "joe@joesrobotcrap.com",
+    password: "super-secret",
   },
 };
 let cart;
 
-app.get('/api/products', (req, res) => {
+app.get("/api/products", (req, res) => {
   let products = [
     {
       id: 1,
@@ -34,7 +34,7 @@ app.get('/api/products', (req, res) => {
       imageName: "head-big-eye.png",
       category: "Heads",
       price: 1225.5,
-      discount: .2
+      discount: 0.2,
     },
     {
       id: 17,
@@ -42,24 +42,26 @@ app.get('/api/products', (req, res) => {
       name: "Spring Base",
       imageName: "base-spring.png",
       category: "Bases",
-      price: 1190.5
+      price: 1190.5,
     },
     {
       id: 6,
-      description: "An articulated arm with a claw -- great for reaching around corners or working in tight spaces.",
+      description:
+        "An articulated arm with a claw -- great for reaching around corners or working in tight spaces.",
       name: "Articulated Arm",
       imageName: "arm-articulated-claw.png",
       category: "Arms",
-      price: 275
+      price: 275,
     },
     {
       id: 2,
-      description: "A friendly robot head with two eyes and a smile -- great for domestic use.",
+      description:
+        "A friendly robot head with two eyes and a smile -- great for domestic use.",
       name: "Friendly Bot",
       imageName: "head-friendly.png",
       category: "Heads",
       price: 945.0,
-      discount: .2
+      discount: 0.2,
     },
     {
       id: 3,
@@ -68,16 +70,17 @@ app.get('/api/products', (req, res) => {
       name: "Shredder",
       imageName: "head-shredder.png",
       category: "Heads",
-      price: 1275.5
+      price: 1275.5,
     },
     {
       id: 16,
-      description: "A single-wheeled base with an accelerometer capable of higher speeds and navigating rougher terrain than the two-wheeled variety.",
+      description:
+        "A single-wheeled base with an accelerometer capable of higher speeds and navigating rougher terrain than the two-wheeled variety.",
       name: "Single Wheeled Base",
       imageName: "base-single-wheel.png",
       category: "Bases",
       price: 1190.5,
-      discount: .1
+      discount: 0.1,
     },
     {
       id: 13,
@@ -85,34 +88,35 @@ app.get('/api/products', (req, res) => {
       name: "Pouch Torso",
       imageName: "torso-pouch.png",
       category: "Torsos",
-      price: 785
+      price: 785,
     },
     {
       id: 7,
-      description: "An arm with two independent claws -- great when you need an extra hand. Need four hands? Equip your bot with two of these arms.",
+      description:
+        "An arm with two independent claws -- great when you need an extra hand. Need four hands? Equip your bot with two of these arms.",
       name: "Two Clawed Arm",
       imageName: "arm-dual-claw.png",
       category: "Arms",
-      price: 285
+      price: 285,
     },
 
     {
       id: 4,
-      description:
-        "A simple single-eyed head -- simple and inexpensive.",
+      description: "A simple single-eyed head -- simple and inexpensive.",
       name: "Small Cyclops",
       imageName: "head-single-eye.png",
       category: "Heads",
-      price: 750.0
+      price: 750.0,
     },
     {
       id: 9,
-      description: "An arm with a propeller -- good for propulsion or as a cooling fan.",
+      description:
+        "An arm with a propeller -- good for propulsion or as a cooling fan.",
       name: "Propeller Arm",
       imageName: "arm-propeller.png",
       category: "Arms",
       price: 230,
-      discount: .1
+      discount: 0.1,
     },
     {
       id: 15,
@@ -120,7 +124,7 @@ app.get('/api/products', (req, res) => {
       name: "Rocket Base",
       imageName: "base-rocket.png",
       category: "Bases",
-      price: 1520.5
+      price: 1520.5,
     },
     {
       id: 10,
@@ -128,15 +132,16 @@ app.get('/api/products', (req, res) => {
       name: "Stubby Claw Arm",
       imageName: "arm-stubby-claw.png",
       category: "Arms",
-      price: 125
+      price: 125,
     },
     {
       id: 11,
-      description: "A torso that can bend slightly at the waist and equiped with a heat guage.",
+      description:
+        "A torso that can bend slightly at the waist and equiped with a heat guage.",
       name: "Flexible Gauged Torso",
       imageName: "torso-flexible-gauged.png",
       category: "Torsos",
-      price: 1575
+      price: 1575,
     },
     {
       id: 14,
@@ -144,7 +149,7 @@ app.get('/api/products', (req, res) => {
       name: "Double Wheeled Base",
       imageName: "base-double-wheel.png",
       category: "Bases",
-      price: 895
+      price: 895,
     },
     {
       id: 5,
@@ -153,7 +158,7 @@ app.get('/api/products', (req, res) => {
       name: "Surveillance",
       imageName: "head-surveillance.png",
       category: "Heads",
-      price: 1255.5
+      price: 1255.5,
     },
     {
       id: 8,
@@ -161,7 +166,7 @@ app.get('/api/products', (req, res) => {
       name: "Grabber Arm",
       imageName: "arm-grabber.png",
       category: "Arms",
-      price: 205.5
+      price: 205.5,
     },
     {
       id: 12,
@@ -169,49 +174,50 @@ app.get('/api/products', (req, res) => {
       name: "Gauged Torso",
       imageName: "torso-gauged.png",
       category: "Torsos",
-      price: 1385
+      price: 1385,
     },
     {
       id: 18,
-      description: "An inexpensive three-wheeled base. only capable of slow speeds and can only function on smooth surfaces.",
+      description:
+        "An inexpensive three-wheeled base. only capable of slow speeds and can only function on smooth surfaces.",
       name: "Triple Wheeled Base",
       imageName: "base-triple-wheel.png",
       category: "Bases",
-      price: 700.5
+      price: 700.5,
     },
   ];
   res.send(products);
 });
 
-app.post('/api/cart', (req, res) => {
+app.post("/api/cart", (req, res) => {
   cart = req.body;
   setTimeout(() => res.status(201).send(), 20);
 });
 
-app.get('/api/cart', (req, res) =>
-  res.send(cart)
-);
+app.get("/api/cart", (req, res) => res.send(cart));
 
-app.post('/api/register', (req, res) => setTimeout(() => {
-  const user = req.body;
-  if (user.firstName && user.lastName && user.email && user.password) {
-    users[user.email] = user;
-    res.status(201).send({
-      firstName: user.firstName,
-      lastName: user.lastName,
-      email: user.email,
-    });
-  } else {
-    res.status(500).send('Invalid user info');
-  }
-}, 800));
+app.post("/api/register", (req, res) =>
+  setTimeout(() => {
+    const user = req.body;
+    if (user.firstName && user.lastName && user.email && user.password) {
+      users[user.email] = user;
+      res.status(201).send({
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+      });
+    } else {
+      res.status(500).send("Invalid user info");
+    }
+  }, 800)
+);
 
 /* IMPORTANT:
     The code below is for demo purposes only and does not represent good security
     practices. In a production application user credentials would be cryptographically 
     stored in a database server and the password should NEVER be stored as plain text. 
 */
-app.post('/api/sign-in', (req, res) => {
+app.post("/api/sign-in", (req, res) => {
   const user = users[req.body.email];
   if (user && user.password === req.body.password) {
     res.status(200).send({
@@ -220,7 +226,9 @@ app.post('/api/sign-in', (req, res) => {
       lastName: user.lastName,
       email: user.email,
     });
-  } else { res.status(401).send('Invalid user credentials.'); }
+  } else {
+    res.status(401).send("Invalid user credentials.");
+  }
 });
 
-app.listen(8081, () => console.log('API Server listening on port 8081!'));
+app.listen(8081, () => console.log("API Server listening on port 8081!"));

@@ -4,7 +4,7 @@
 }
 
 .hero {
-  background-image: url('/assets/images/hero-banner.png');
+  background-image: url("/assets/images/hero-banner.png");
   background-repeat: no-repeat;
   height: 300px;
   background-size: cover;
@@ -83,7 +83,6 @@
   background-color: #333;
   text-align: center;
   justify-content: space-between;
-
 }
 
 .white-paper .header-text {
@@ -93,7 +92,7 @@
 
 .white-paper .sub-text {
   font-size: 20px;
-  color: #5CADD2;
+  color: #5cadd2;
   margin-top: 10px;
   padding: 0 15%;
 }
@@ -112,7 +111,7 @@
 }
 
 .white-paper .learn-more {
-  background-color: #D25CA1;
+  background-color: #d25ca1;
   color: white;
   padding: 15px 25px;
   text-decoration: none;

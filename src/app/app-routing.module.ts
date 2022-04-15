@@ -9,11 +9,14 @@ const routes: Routes = [
   { path: 'catalog', component: CatalogComponent },
   { path: 'cart', component: CartComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
+  {
+    path: 'user',
+    loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

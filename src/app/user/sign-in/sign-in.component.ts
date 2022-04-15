@@ -6,20 +6,22 @@ import { IUserCredentials } from 'src/app/shared/user.model';
 @Component({
   selector: 'bot-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css']
+  styleUrls: ['./sign-in.component.css'],
 })
 export class SignInComponent {
   credentials: IUserCredentials = { email: '', password: '' };
   signInError = false;
 
-  constructor(private userRepository: UserRepositoryService, private router: Router) { }
+  constructor(
+    private userRepository: UserRepositoryService,
+    private router: Router
+  ) {}
 
   signIn() {
     this.signInError = false;
     this.userRepository.signIn(this.credentials).subscribe({
       next: () => this.router.navigate(['/']),
-      error: () => this.signInError = true
+      error: () => (this.signInError = true),
     });
   }
-
 }

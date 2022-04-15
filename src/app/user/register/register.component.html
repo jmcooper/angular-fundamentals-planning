@@ -4,28 +4,56 @@
     <div class="register">Register</div>
     <div class="sub-text">to acquire awesome bots</div>
 
-    <input [ngClass]="{'error': false }" formControlName="firstName" placeholder="First Name" type="text" />
-    <em class="error" *ngIf="firstName?.errors?.['required'] && firstName?.dirty">
+    <input
+      [ngClass]="{ error: false }"
+      formControlName="firstName"
+      placeholder="First Name"
+      type="text"
+    />
+    <em
+      class="error"
+      *ngIf="firstName?.errors?.['required'] && firstName?.dirty"
+    >
       First Name is required
     </em>
-    <input [ngClass]="{'error': false }" formControlName="lastName" placeholder="Last Name" type="text" />
+    <input
+      [ngClass]="{ error: false }"
+      formControlName="lastName"
+      placeholder="Last Name"
+      type="text"
+    />
     <em class="error" *ngIf="lastName?.errors?.['required'] && lastName?.dirty">
       Last Name is required
     </em>
-    <input [ngClass]="{'error': false }" formControlName="email" placeholder="Email Address" type="text" />
+    <input
+      [ngClass]="{ error: false }"
+      formControlName="email"
+      placeholder="Email Address"
+      type="text"
+    />
     <em class="error" *ngIf="email?.errors?.['required'] && email?.dirty">
       Email is required
     </em>
-    <input [ngClass]="{'error': false }" formControlName="password" placeholder="Password" type="password" />
+    <input
+      [ngClass]="{ error: false }"
+      formControlName="password"
+      placeholder="Password"
+      type="password"
+    />
     <em class="error" *ngIf="password?.errors?.['required'] && password?.dirty">
       Password is required
     </em>
-    <em class="error" *ngIf="password?.errors?.['minlength'] && password?.dirty">
+    <em
+      class="error"
+      *ngIf="password?.errors?.['minlength'] && password?.dirty"
+    >
       Must be at least 8 characters
     </em>
 
     <div class="buttons">
-      <button type="submit" class="button cta" [disabled]="!registerForm.valid">Register</button>
+      <button type="submit" class="button cta" [disabled]="!registerForm.valid">
+        Register
+      </button>
     </div>
 
     <div class="registrationError" *ngIf="registrationError">

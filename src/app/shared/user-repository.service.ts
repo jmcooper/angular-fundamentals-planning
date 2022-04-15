@@ -5,20 +5,21 @@ import { map, Observable } from 'rxjs';
 import { IUser, IUserCredentials } from './user.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserRepositoryService {
   public user: IUser | null = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   private storeAndReturnUser = (user: IUser): IUser => {
     this.user = user;
     return user;
-  }
+  };
 
   signIn(credentials: IUserCredentials): Observable<IUser> {
-    return this.http.post<IUser>('/api/sign-in', credentials)
+    return this.http
+      .post<IUser>('/api/sign-in', credentials)
       .pipe(map(this.storeAndReturnUser));
   }
 
@@ -27,7 +28,8 @@ export class UserRepositoryService {
   }
 
   register(user: IUser): Observable<IUser> {
-    return this.http.post<IUser>('/api/register', user)
+    return this.http
+      .post<IUser>('/api/register', user)
       .pipe(map(this.storeAndReturnUser));
   }
 }
