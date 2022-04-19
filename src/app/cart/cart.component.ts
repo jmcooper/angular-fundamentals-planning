@@ -10,6 +10,10 @@ import { CartRepositoryService } from './cart-repository.service';
 export class CartComponent {
   constructor(private cartRepository: CartRepositoryService) {}
 
+  ngOnInit() {
+    this.cartRepository.getCart().subscribe();
+  }
+
   get cartItems() {
     return this.cartRepository.cart;
   }

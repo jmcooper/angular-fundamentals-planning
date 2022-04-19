@@ -25,6 +25,7 @@ export class SiteHeaderComponent {
   }
 
   getCartCount(): number {
+    this.cartRepository.getCart().subscribe();
     return this.cartRepository.cart.length;
   }
 
