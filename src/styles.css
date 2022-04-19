@@ -71,6 +71,21 @@ button {
   cursor: pointer;
 }
 
+a.button {
+  font-size: 15px;
+  padding: 15px 25px;
+  background-color: #5cadd2;
+  color: #fff;
+  border: 0;
+  box-shadow: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+a.button:hover {
+  color: #1c6d92;
+}
+
 button:disabled {
   background-color: #777;
 }
@@ -92,22 +107,6 @@ button.cta:hover {
 input {
   padding: 15px;
   font-size: 20px;
-}
-
-a.button {
-  background-color: #777;
-  color: white;
-  padding: 15px 25px;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-a.button.cta {
-  background-color: #d25ca1;
-}
-
-a.button.cta:hover {
-  color: #ccc;
 }
 
 .button.cta:disabled {

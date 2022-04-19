@@ -1,10 +1,32 @@
 <div class="container">
   <div class="filters">
-    <button (click)="setFilter('Heads')">Heads</button>
-    <button (click)="setFilter('Arms')">Arms</button>
-    <button (click)="setFilter('Torsos')">Torsos</button>
-    <button (click)="setFilter('Bases')">Bases</button>
-    <button (click)="setFilter('')">All</button>
+    <a
+      class="button"
+      [routerLink]="['/catalog']"
+      [queryParams]="{ filter: 'Heads' }"
+      >Heads</a
+    >
+    <a
+      class="button"
+      [routerLink]="['/catalog']"
+      [queryParams]="{ filter: 'Arms' }"
+      >Arms</a
+    >
+    <a
+      class="button"
+      [routerLink]="['/catalog']"
+      [queryParams]="{ filter: 'Torsos' }"
+      >Torsos</a
+    >
+    <a
+      class="button"
+      [routerLink]="['/catalog']"
+      [queryParams]="{ filter: 'Bases' }"
+      >Bases</a
+    >
+    <a class="button" [routerLink]="['/catalog']" [queryParams]="{ filter: '' }"
+      >All</a
+    >
   </div>
 
   <ul class="products">

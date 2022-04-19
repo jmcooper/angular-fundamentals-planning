@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product.model';
 import { ProductRepositoryService } from './product-repository.service';
 import { CartRepositoryService } from '../cart/cart-repository.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'bot-catalog',
@@ -16,13 +17,18 @@ export class CatalogComponent implements OnInit {
 
   constructor(
     private productRepository: ProductRepositoryService,
-    private cartRepository: CartRepositoryService
+    private cartRepository: CartRepositoryService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.productRepository.getProducts().subscribe((products: IProduct[]) => {
-      this.products = products;
-      this.filterProducts();
+    let filter: string;
+
+    this.products = this.route.snapshot.data['products'];
+
+    this.route.queryParams.subscribe((params) => {
+      filter = params['filter'] ?? '';
+      this.setFilter(filter);
     });
   }
 
