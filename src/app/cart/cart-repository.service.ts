@@ -8,12 +8,9 @@ import { IProduct } from '../catalog/product.model';
   providedIn: 'root',
 })
 export class CartRepositoryService {
-  public random: number;
   public cart: IProduct[] = [];
 
-  constructor(private http: HttpClient) {
-    this.random = Math.random();
-  }
+  constructor(private http: HttpClient) {}
 
   getCart(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>('/api/cart').pipe(

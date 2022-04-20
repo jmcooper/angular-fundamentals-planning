@@ -14,7 +14,13 @@ export class SiteHeaderComponent {
   constructor(
     private userRepository: UserRepositoryService,
     private cartRepository: CartRepositoryService
-  ) {}
+  ) {
+    console.log('constructor');
+  }
+
+  ngOnInit() {
+    console.log('init');
+  }
 
   toggleSignOutMenu() {
     this.showSignOutMenu = !this.showSignOutMenu;
@@ -25,7 +31,8 @@ export class SiteHeaderComponent {
   }
 
   getCartCount(): number {
-    this.cartRepository.getCart().subscribe();
+    console.log('getting cart count');
+    // this.cartRepository.getCart().subscribe();
     return this.cartRepository.cart.length;
   }
 
