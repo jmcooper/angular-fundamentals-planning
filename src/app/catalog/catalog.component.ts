@@ -11,9 +11,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./catalog.component.css'],
 })
 export class CatalogComponent implements OnInit {
-  private products: IProduct[] = [];
   public visibleProducts: IProduct[] = [];
   public filter: string = '';
+  private products: IProduct[] = [];
+  private cart: IProduct[] = [];
 
   constructor(
     private productRepository: ProductRepositoryService,
@@ -25,6 +26,10 @@ export class CatalogComponent implements OnInit {
     let filter: string;
 
     this.products = this.route.snapshot.data['products'];
+
+    this.cartRepository.getCart().subscribe({
+      next: (cart) => (this.cart = cart),
+    });
 
     this.route.queryParams.subscribe((params) => {
       filter = params['filter'] ?? '';
@@ -45,8 +50,8 @@ export class CatalogComponent implements OnInit {
   }
 
   addToCart(product: IProduct) {
-    let cart = [...this.cartRepository.cart, product];
+    let newCart = [...this.cart, product];
 
-    this.cartRepository.saveCart(cart);
+    this.cartRepository.saveCart(newCart);
   }
 }

@@ -10,8 +10,8 @@
     <a [routerLink]="['catalog']" routerLinkActive="active">Catalog</a>
     <div class="cart">
       <a [routerLink]="['cart']" routerLinkActive="active">Cart</a>
-      <div class="cartCount" *ngIf="getCartCount() > 0">
-        <div>{{ getCartCount() }}</div>
+      <div class="cartCount" *ngIf="cart.length > 0">
+        <div>{{ cart.length }}</div>
       </div>
     </div>
   </div>

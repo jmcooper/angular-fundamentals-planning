@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartRepositoryService } from '../cart/cart-repository.service';
+import { IProduct } from '../catalog/product.model';
 import { UserRepositoryService } from '../shared/user-repository.service';
 import { IUser } from '../shared/user.model';
 
@@ -9,6 +10,7 @@ import { IUser } from '../shared/user.model';
   styleUrls: ['./site-header.component.css'],
 })
 export class SiteHeaderComponent {
+  cart: IProduct[] = [];
   showSignOutMenu: boolean = false;
 
   constructor(
@@ -20,6 +22,9 @@ export class SiteHeaderComponent {
 
   ngOnInit() {
     console.log('init');
+    this.cartRepository.getCart().subscribe({
+      next: (newCart) => (this.cart = newCart),
+    });
   }
 
   toggleSignOutMenu() {
@@ -28,12 +33,6 @@ export class SiteHeaderComponent {
 
   getUser(): IUser | null {
     return this.userRepository.user;
-  }
-
-  getCartCount(): number {
-    console.log('getting cart count');
-    // this.cartRepository.getCart().subscribe();
-    return this.cartRepository.cart.length;
   }
 
   signOut() {

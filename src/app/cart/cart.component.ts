@@ -8,25 +8,28 @@ import { CartRepositoryService } from './cart-repository.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent {
+  private cart: IProduct[] = [];
   constructor(private cartRepository: CartRepositoryService) {}
 
   ngOnInit() {
-    this.cartRepository.getCart().subscribe();
+    this.cartRepository.getCart().subscribe({
+      next: (cart) => (this.cart = cart),
+    });
   }
 
   get cartItems() {
-    return this.cartRepository.cart;
+    return this.cart;
   }
 
   get cartTotal() {
-    return this.cartRepository.cart.reduce((prev, next) => {
+    return this.cart.reduce((prev, next) => {
       let discount = next.discount && next.discount > 0 ? 1 - next.discount : 1;
       return prev + next.price * discount;
     }, 0);
   }
 
   removeFromCart(product: IProduct) {
-    let cart = this.cartRepository.cart.filter((i) => i !== product);
+    let cart = this.cart.filter((i) => i !== product);
 
     this.cartRepository.saveCart(cart);
   }
