@@ -15,13 +15,13 @@
       </div>
     </div>
   </div>
-  <div class="right" *ngIf="!getUser()">
+  <div class="right" *ngIf="!user">
     <a [routerLink]="['user/sign-in']" routerLinkActive="active">Sign In</a>
     <a [routerLink]="['user/register']" routerLinkActive="active" class="cta"
       >Register</a
     >
   </div>
-  <div class="right" *ngIf="getUser()">
+  <div class="right" *ngIf="user">
     <div>
       <img
         src="/assets/images/profile.png"

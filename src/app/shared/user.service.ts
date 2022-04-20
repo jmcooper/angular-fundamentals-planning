@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 
 import { IUser, IUserCredentials } from './user.model';
 
@@ -8,14 +8,20 @@ import { IUser, IUserCredentials } from './user.model';
   providedIn: 'root',
 })
 export class UserService {
-  public user: IUser | null = null;
+  private user: BehaviorSubject<IUser | null>;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.user = new BehaviorSubject<IUser | null>(null);
+  }
 
   private storeAndReturnUser = (user: IUser): IUser => {
-    this.user = user;
+    this.user.next(user);
     return user;
   };
+
+  getUser(): Observable<IUser | null> {
+    return this.user;
+  }
 
   signIn(credentials: IUserCredentials): Observable<IUser> {
     return this.http
@@ -24,7 +30,7 @@ export class UserService {
   }
 
   signOut() {
-    this.user = null;
+    this.user.next(null);
   }
 
   register(user: IUser): Observable<IUser> {

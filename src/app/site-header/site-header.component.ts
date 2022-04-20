@@ -10,6 +10,7 @@ import { IUser } from '../shared/user.model';
   styleUrls: ['./site-header.component.css'],
 })
 export class SiteHeaderComponent {
+  user: IUser | null = null;
   cart: IProduct[] = [];
   showSignOutMenu: boolean = false;
 
@@ -22,6 +23,9 @@ export class SiteHeaderComponent {
 
   ngOnInit() {
     console.log('init');
+    this.userService.getUser().subscribe({
+      next: (user) => (this.user = user),
+    });
     this.cartService.getCart().subscribe({
       next: (newCart) => (this.cart = newCart),
     });
@@ -29,10 +33,6 @@ export class SiteHeaderComponent {
 
   toggleSignOutMenu() {
     this.showSignOutMenu = !this.showSignOutMenu;
-  }
-
-  getUser(): IUser | null {
-    return this.userService.user;
   }
 
   signOut() {
