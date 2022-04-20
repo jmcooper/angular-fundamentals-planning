@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { IProduct } from './product.model';
-import { ProductRepositoryService } from './product-repository.service';
-import { CartRepositoryService } from '../cart/cart-repository.service';
+import { ProductService } from './product.service';
+import { CartService } from '../cart/cart.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -17,8 +17,7 @@ export class CatalogComponent implements OnInit {
   private cart: IProduct[] = [];
 
   constructor(
-    private productRepository: ProductRepositoryService,
-    private cartRepository: CartRepositoryService,
+    private cartService: CartService,
     private route: ActivatedRoute
   ) {}
 
@@ -27,7 +26,7 @@ export class CatalogComponent implements OnInit {
 
     this.products = this.route.snapshot.data['products'];
 
-    this.cartRepository.getCart().subscribe({
+    this.cartService.getCart().subscribe({
       next: (cart) => (this.cart = cart),
     });
 
@@ -52,6 +51,6 @@ export class CatalogComponent implements OnInit {
   addToCart(product: IProduct) {
     let newCart = [...this.cart, product];
 
-    this.cartRepository.saveCart(newCart);
+    this.cartService.saveCart(newCart);
   }
 }

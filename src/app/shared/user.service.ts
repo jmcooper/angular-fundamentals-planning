@@ -7,7 +7,7 @@ import { IUser, IUserCredentials } from './user.model';
 @Injectable({
   providedIn: 'root',
 })
-export class UserRepositoryService {
+export class UserService {
   public user: IUser | null = null;
 
   constructor(private http: HttpClient) {}

@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import {
-  AbstractControl,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserRepositoryService } from 'src/app/shared/user-repository.service';
+import { UserService } from 'src/app/shared/user.service';
 import { IUser } from 'src/app/shared/user.model';
 
 @Component({
@@ -27,10 +22,7 @@ export class RegisterComponent {
     ]),
   });
 
-  constructor(
-    private userRepository: UserRepositoryService,
-    private router: Router
-  ) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   get firstName() {
     return this.registerForm.get('firstName');
@@ -47,7 +39,7 @@ export class RegisterComponent {
 
   register() {
     let user: IUser = this.registerForm.value;
-    this.userRepository.register(user).subscribe({
+    this.userService.register(user).subscribe({
       next: () => this.router.navigate(['/']),
       error: () => (this.registrationError = true),
     });

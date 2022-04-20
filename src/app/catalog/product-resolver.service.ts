@@ -4,13 +4,13 @@ import {
   Resolve,
   RouterStateSnapshot,
 } from '@angular/router';
-import { ProductRepositoryService } from './product-repository.service';
+import { ProductService } from './product.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductResolverService implements Resolve<any> {
-  constructor(private productService: ProductRepositoryService) {}
+  constructor(private productService: ProductService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     return this.productService.getProducts();

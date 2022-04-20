@@ -7,7 +7,7 @@ import { IProduct } from './product.model';
 @Injectable({
   providedIn: 'root',
 })
-export class ProductRepositoryService {
+export class ProductService {
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<IProduct[]> {

@@ -7,7 +7,7 @@ import { IProduct } from '../catalog/product.model';
 @Injectable({
   providedIn: 'root',
 })
-export class CartRepositoryService {
+export class CartService {
   private cart: BehaviorSubject<IProduct[]>;
 
   constructor(private http: HttpClient) {

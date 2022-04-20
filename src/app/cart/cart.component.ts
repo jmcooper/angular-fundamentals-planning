@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../catalog/product.model';
-import { CartRepositoryService } from './cart-repository.service';
+import { CartService } from './cart.service';
 
 @Component({
   selector: 'bot-cart',
@@ -9,10 +9,10 @@ import { CartRepositoryService } from './cart-repository.service';
 })
 export class CartComponent {
   private cart: IProduct[] = [];
-  constructor(private cartRepository: CartRepositoryService) {}
+  constructor(private cartService: CartService) {}
 
   ngOnInit() {
-    this.cartRepository.getCart().subscribe({
+    this.cartService.getCart().subscribe({
       next: (cart) => (this.cart = cart),
     });
   }
@@ -31,6 +31,6 @@ export class CartComponent {
   removeFromCart(product: IProduct) {
     let cart = this.cart.filter((i) => i !== product);
 
-    this.cartRepository.saveCart(cart);
+    this.cartService.saveCart(cart);
   }
 }

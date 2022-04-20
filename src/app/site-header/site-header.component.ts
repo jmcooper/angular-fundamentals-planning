@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CartRepositoryService } from '../cart/cart-repository.service';
+import { CartService } from '../cart/cart.service';
 import { IProduct } from '../catalog/product.model';
-import { UserRepositoryService } from '../shared/user-repository.service';
+import { UserService } from '../shared/user.service';
 import { IUser } from '../shared/user.model';
 
 @Component({
@@ -14,15 +14,15 @@ export class SiteHeaderComponent {
   showSignOutMenu: boolean = false;
 
   constructor(
-    private userRepository: UserRepositoryService,
-    private cartRepository: CartRepositoryService
+    private userService: UserService,
+    private cartService: CartService
   ) {
     console.log('constructor');
   }
 
   ngOnInit() {
     console.log('init');
-    this.cartRepository.getCart().subscribe({
+    this.cartService.getCart().subscribe({
       next: (newCart) => (this.cart = newCart),
     });
   }
@@ -32,11 +32,11 @@ export class SiteHeaderComponent {
   }
 
   getUser(): IUser | null {
-    return this.userRepository.user;
+    return this.userService.user;
   }
 
   signOut() {
-    this.userRepository.signOut();
+    this.userService.signOut();
     this.showSignOutMenu = false;
   }
 }
