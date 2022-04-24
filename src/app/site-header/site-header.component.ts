@@ -18,11 +18,9 @@ export class SiteHeaderComponent {
     private userService: UserService,
     private cartService: CartService
   ) {
-    console.log('constructor');
   }
 
   ngOnInit() {
-    console.log('init');
     this.userService.getUser().subscribe({
       next: (user) => (this.user = user),
     });
