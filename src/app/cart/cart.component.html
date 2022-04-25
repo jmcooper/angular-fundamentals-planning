@@ -7,7 +7,7 @@
   <ul class="cart" *ngIf="cartItems.length > 0">
     <li class="cart-item" *ngFor="let product of cartItems">
       <bot-product-details [product]="product">
-        <button class="cta" (click)="removeFromCart(product)">Remove</button>
+        <button (click)="removeFromCart(product)">Remove</button>
       </bot-product-details>
     </li>
   </ul>
