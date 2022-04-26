@@ -5,5 +5,5 @@ export interface IProduct {
   imageName: string;
   category: string;
   price: number;
-  discount?: number | null | undefined;
+  discount: number;
 }

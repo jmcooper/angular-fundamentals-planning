@@ -38,7 +38,7 @@ app.get("/api/products", (req, res) => {
       name: "Large Cyclops",
       imageName: "head-big-eye.png",
       category: "Heads",
-      price: 1225.5,
+      price: 1220.5,
       discount: 0.2,
     },
     {
@@ -48,6 +48,7 @@ app.get("/api/products", (req, res) => {
       imageName: "base-spring.png",
       category: "Bases",
       price: 1190.5,
+      discount: 0,
     },
     {
       id: 6,
@@ -57,6 +58,7 @@ app.get("/api/products", (req, res) => {
       imageName: "arm-articulated-claw.png",
       category: "Arms",
       price: 275,
+      discount: 0,
     },
     {
       id: 2,
@@ -76,6 +78,7 @@ app.get("/api/products", (req, res) => {
       imageName: "head-shredder.png",
       category: "Heads",
       price: 1275.5,
+      discount: 0,
     },
     {
       id: 16,
@@ -94,6 +97,7 @@ app.get("/api/products", (req, res) => {
       imageName: "torso-pouch.png",
       category: "Torsos",
       price: 785,
+      discount: 0,
     },
     {
       id: 7,
@@ -103,6 +107,7 @@ app.get("/api/products", (req, res) => {
       imageName: "arm-dual-claw.png",
       category: "Arms",
       price: 285,
+      discount: 0,
     },
 
     {
@@ -112,6 +117,7 @@ app.get("/api/products", (req, res) => {
       imageName: "head-single-eye.png",
       category: "Heads",
       price: 750.0,
+      discount: 0,
     },
     {
       id: 9,
@@ -130,6 +136,7 @@ app.get("/api/products", (req, res) => {
       imageName: "base-rocket.png",
       category: "Bases",
       price: 1520.5,
+      discount: 0,
     },
     {
       id: 10,
@@ -138,6 +145,7 @@ app.get("/api/products", (req, res) => {
       imageName: "arm-stubby-claw.png",
       category: "Arms",
       price: 125,
+      discount: 0,
     },
     {
       id: 11,
@@ -147,6 +155,7 @@ app.get("/api/products", (req, res) => {
       imageName: "torso-flexible-gauged.png",
       category: "Torsos",
       price: 1575,
+      discount: 0,
     },
     {
       id: 14,
@@ -155,6 +164,7 @@ app.get("/api/products", (req, res) => {
       imageName: "base-double-wheel.png",
       category: "Bases",
       price: 895,
+      discount: 0,
     },
     {
       id: 5,
@@ -164,6 +174,7 @@ app.get("/api/products", (req, res) => {
       imageName: "head-surveillance.png",
       category: "Heads",
       price: 1255.5,
+      discount: 0,
     },
     {
       id: 8,
@@ -172,6 +183,7 @@ app.get("/api/products", (req, res) => {
       imageName: "arm-grabber.png",
       category: "Arms",
       price: 205.5,
+      discount: 0,
     },
     {
       id: 12,
@@ -180,6 +192,7 @@ app.get("/api/products", (req, res) => {
       imageName: "torso-gauged.png",
       category: "Torsos",
       price: 1385,
+      discount: 0,
     },
     {
       id: 18,
@@ -189,6 +202,7 @@ app.get("/api/products", (req, res) => {
       imageName: "base-triple-wheel.png",
       category: "Bases",
       price: 700.5,
+      discount: 0,
     },
   ];
   res.send(products);

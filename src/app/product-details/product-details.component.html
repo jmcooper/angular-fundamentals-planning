@@ -16,7 +16,7 @@
     >
       {{ product.price | currency }}
     </div>
-    <div *ngIf="product.discount && product.discount > 0" class="discount">
+    <div *ngIf="product.discount > 0" class="discount">
       {{ product.price * (1 - product.discount) | currency }}
     </div>
     <ng-content></ng-content>
