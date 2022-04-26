@@ -11,7 +11,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./catalog.component.css'],
 })
 export class CatalogComponent implements OnInit {
-  public visibleProducts: IProduct[] = [];
   public filter: string = '';
   private products: IProduct[] = [];
   private cart: IProduct[] = [];
@@ -22,8 +21,6 @@ export class CatalogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    let filter: string;
-
     this.products = this.route.snapshot.data['products'];
 
     this.cartService.getCart().subscribe({
@@ -31,19 +28,12 @@ export class CatalogComponent implements OnInit {
     });
 
     this.route.queryParams.subscribe((params) => {
-      filter = params['filter'] ?? '';
-      this.setFilter(filter);
+      this.filter = params['filter'] ?? '';
     });
   }
 
-  setFilter(filter: string) {
-    this.filter = filter;
-    this.filterProducts();
-  }
-
-  private filterProducts() {
-    this.visibleProducts =
-      this.filter === ''
+  getFilteredProducts() {
+    return this.filter === ''
         ? this.products
         : this.products.filter((product) => product.category === this.filter);
   }

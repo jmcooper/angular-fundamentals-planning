@@ -30,7 +30,7 @@
   </div>
 
   <ul class="products">
-    <li class="product-item" *ngFor="let product of visibleProducts">
+    <li class="product-item" *ngFor="let product of getFilteredProducts()">
       <bot-product-details [product]="product">
         <button class="cta" (click)="addToCart(product)">Buy</button>
       </bot-product-details>
