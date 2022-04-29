@@ -23,7 +23,7 @@ export class CatalogComponent implements OnInit {
     this.products = this.route.snapshot.data['products'];
 
     this.cartService.getCart().subscribe({
-      next: (cart) => (this.cart = cart),
+      next: (cart: IProduct[]) => (this.cart = cart),
     });
 
     this.route.queryParams.subscribe((params) => {
@@ -33,8 +33,8 @@ export class CatalogComponent implements OnInit {
 
   getFilteredProducts() {
     return this.filter === ''
-        ? this.products
-        : this.products.filter((product) => product.category === this.filter);
+      ? this.products
+      : this.products.filter((product) => product.category === this.filter);
   }
 
   addToCart(product: IProduct) {
