@@ -9,7 +9,7 @@ import { IUser } from '../shared/user.model';
   templateUrl: './site-header.component.html',
   styleUrls: ['./site-header.component.css'],
 })
-export class SiteHeaderComponent {
+export class SiteHeaderComponent implements OnInit {
   user: IUser | null = null;
   cart: IProduct[] = [];
   showSignOutMenu: boolean = false;
@@ -17,8 +17,7 @@ export class SiteHeaderComponent {
   constructor(
     private userService: UserService,
     private cartService: CartService
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.userService.getUser().subscribe({
