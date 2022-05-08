@@ -6,6 +6,12 @@ import { CartComponent } from './cart/cart.component';
 import { ProductResolverService } from './catalog/product-resolver.service';
 import { CartRouteActivator } from './cart/cart-route-activator.service';
 
+function canDeactivateCart() {
+  return window.confirm(
+    'Are you sure you want to leave your cart without checking out?'
+  );
+}
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   {
@@ -13,7 +19,12 @@ const routes: Routes = [
     component: CatalogComponent,
     resolve: { products: ProductResolverService },
   },
-  { path: 'cart', component: CartComponent, canActivate: [CartRouteActivator] },
+  {
+    path: 'cart',
+    component: CartComponent,
+    canActivate: [CartRouteActivator],
+    canDeactivate: ['canDeactivateCart'],
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'user',
@@ -24,5 +35,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [{ provide: 'canDeactivateCart', useValue: canDeactivateCart }],
 })
 export class AppRoutingModule {}
