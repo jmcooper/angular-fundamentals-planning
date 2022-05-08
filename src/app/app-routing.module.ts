@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductResolverService } from './catalog/product-resolver.service';
+import { CartRouteActivator } from './cart/cart-route-activator.service';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -12,7 +13,7 @@ const routes: Routes = [
     component: CatalogComponent,
     resolve: { products: ProductResolverService },
   },
-  { path: 'cart', component: CartComponent },
+  { path: 'cart', component: CartComponent, canActivate: [CartRouteActivator] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'user',
