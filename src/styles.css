@@ -114,6 +114,12 @@ input {
   font-size: 20px;
 }
 
+input,
+select {
+  padding: 15px;
+  font-size: 20px;
+}
+
 .button.cta:disabled {
   background-color: #f590c4;
   color: #aaa;
