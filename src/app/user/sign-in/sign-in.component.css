@@ -17,7 +17,7 @@
 }
 
 .logo {
-  width: 150px;
+  width: 170px;
   align-self: center;
   margin-bottom: 15px;
 }
@@ -29,7 +29,7 @@
 }
 
 .sub-text {
-  font-size: 18px;
+  font-size: 22px;
   align-self: center;
   margin-bottom: 15px;
   color: #444;
@@ -58,4 +58,22 @@ em.error {
   color: red;
   font-size: 18px;
   text-align: center;
+}
+
+.form-info {
+  display: flex;
+  font-size: 18px;
+  padding: 30px 50px 50px 50px;
+}
+
+.form-info label {
+  display: inline-block;
+  width: 200px;
+}
+
+.form-info div {
+  border: 1px solid #777;
+  border-radius: 10px;
+  padding: 20px;
+  margin-right: 50px;
 }

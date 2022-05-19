@@ -18,17 +18,18 @@
 }
 
 .product .name {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: bold;
 }
 
 .product .description {
   margin-top: 3px;
-  font-size: 18px;
+  font-size: 22px;
 }
 
-.product .category {
-  margin-top: 20px;
+.product-info .category {
+  font-size: 20px;
+  margin-top: 18px;
   color: #777;
 }
 

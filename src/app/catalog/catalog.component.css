@@ -6,7 +6,7 @@
 .filters {
   display: flex;
   justify-content: space-between;
-  padding: 25px 200px;
+  padding: 25px 400px;
 }
 
 .filters button {
